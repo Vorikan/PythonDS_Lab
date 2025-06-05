@@ -1,0 +1,101 @@
+Customer_ID,Name,City,Purchase_Amount,Purchase_Date
+1,Eve Black,New York,,2024-01-01
+2,John Doe,Houston,790.1,2024-01-08
+3,Bob Brown,Chicago,871.69,2024-01-15
+4,Bob Brown,New York,440.83,2024-01-22
+5,Grace Green,San Diego,,2024-01-29
+6,Ivy Red,Philadelphia,81.56,2024-02-05
+7,Bob Brown,San Jose,983.45,2024-02-12
+8,Eve Black,New York,404.63,2024-02-19
+9,Alice Johnson,Chicago,,2024-02-26
+10,Carol White,San Diego,98.06,2024-03-04
+11,Grace Green,Chicago,,2024-03-11
+12,Frank Blue,San Jose,65.8,2024-03-18
+13,Hank Yellow,Chicago,269.21,2024-03-25
+14,Hank Yellow,Houston,776.67,2024-04-01
+15,Jane Smith,Houston,,2024-04-08
+16,Frank Blue,Chicago,762.5,2024-04-15
+17,Grace Green,Houston,372.43,2024-04-22
+18,Grace Green,Phoenix,515.07,2024-04-29
+19,Hank Yellow,Los Angeles,372.04,2024-05-06
+20,Jane Smith,Chicago,220.52,2024-05-13
+21,Eve Black,San Jose,212.44,2024-05-20
+22,Ivy Red,Los Angeles,490.28,2024-05-27
+23,Hank Yellow,Phoenix,880.84,2024-06-03
+24,Ivy Red,San Antonio,946.91,2024-06-10
+25,Carol White,Dallas,627.84,2024-06-17
+26,Bob Brown,Chicago,616.82,2024-06-24
+27,John Doe,Houston,794.46,2024-07-01
+28,Bob Brown,New York,525.02,2024-07-08
+29,Eve Black,New York,,2024-07-15
+30,John Doe,San Antonio,714.14,2024-07-22
+31,Alice Johnson,New York,992.78,2024-07-29
+32,Bob Brown,San Antonio,303.9,2024-08-05
+33,Hank Yellow,Houston,695.14,2024-08-12
+34,Jane Smith,Houston,871.07,2024-08-19
+35,Bob Brown,Dallas,763.3,2024-08-26
+36,Bob Brown,Dallas,,2024-09-02
+37,Bob Brown,Dallas,576.53,2024-09-09
+38,Grace Green,Chicago,251.77,2024-09-16
+39,John Doe,Houston,261.32,2024-09-23
+40,Jane Smith,Chicago,257.81,2024-09-30
+41,Ivy Red,New York,591.09,2024-10-07
+42,Ivy Red,Dallas,,2024-10-14
+43,John Doe,Dallas,971.72,2024-10-21
+44,Carol White,Houston,696.52,2024-10-28
+45,Grace Green,Dallas,131.03,2024-11-04
+46,Bob Brown,Chicago,103.6,2024-11-11
+47,Alice Johnson,Dallas,513.45,2024-11-18
+48,Grace Green,Phoenix,886.95,2024-11-25
+49,Alice Johnson,Houston,977.58,2024-12-02
+50,John Doe,New York,636.78,2024-12-09
+51,John Doe,Phoenix,565.37,2024-12-16
+52,Carol White,Houston,861.88,2024-12-23
+53,Eve Black,San Antonio,756.64,2024-12-30
+54,Eve Black,San Jose,504.67,2025-01-06
+55,Frank Blue,Dallas,693.23,2025-01-13
+56,Hank Yellow,New York,,2025-01-20
+57,Carol White,Dallas,728.96,2025-01-27
+58,Jane Smith,Philadelphia,496.02,2025-02-03
+59,Carol White,San Jose,483.21,2025-02-10
+60,Ivy Red,New York,911.1,2025-02-17
+61,Hank Yellow,San Jose,180.36,2025-02-24
+62,Jane Smith,San Antonio,267.76,2025-03-03
+63,Jane Smith,Philadelphia,887.51,2025-03-10
+64,Grace Green,Houston,909.2,2025-03-17
+65,Ivy Red,Los Angeles,663.5,2025-03-24
+66,Ivy Red,Dallas,358.45,2025-03-31
+67,Bob Brown,New York,,2025-04-07
+68,Frank Blue,Phoenix,50.05,2025-04-14
+69,Grace Green,San Jose,346.27,2025-04-21
+70,Alice Johnson,San Antonio,454.18,2025-04-28
+71,John Doe,Philadelphia,891.07,2025-05-05
+72,Bob Brown,San Diego,695.89,2025-05-12
+73,Eve Black,Dallas,483.32,2025-05-19
+74,Ivy Red,Dallas,509.24,2025-05-26
+75,Carol White,San Jose,799.3,2025-06-02
+76,Carol White,Chicago,267.97,2025-06-09
+77,Frank Blue,Dallas,886.28,2025-06-16
+78,Carol White,San Antonio,348.01,2025-06-23
+79,Carol White,San Antonio,,2025-06-30
+80,Bob Brown,San Jose,498.16,2025-07-07
+81,Carol White,Los Angeles,726.0,2025-07-14
+82,Carol White,San Antonio,196.01,2025-07-21
+83,Hank Yellow,Dallas,743.92,2025-07-28
+84,Carol White,Dallas,,2025-08-04
+85,Bob Brown,Houston,,2025-08-11
+86,Grace Green,Chicago,,2025-08-18
+87,Eve Black,Houston,817.2,2025-08-25
+88,Eve Black,San Antonio,,2025-09-01
+89,John Doe,Houston,691.1,2025-09-08
+90,Jane Smith,San Antonio,313.05,2025-09-15
+91,Eve Black,Philadelphia,216.16,2025-09-22
+92,Ivy Red,San Diego,719.25,2025-09-29
+93,Bob Brown,New York,489.99,2025-10-06
+94,John Doe,Dallas,848.41,2025-10-13
+95,Eve Black,Phoenix,244.62,2025-10-20
+96,John Doe,San Antonio,206.71,2025-10-27
+97,Jane Smith,Philadelphia,,2025-11-03
+98,Alice Johnson,Dallas,735.98,2025-11-10
+99,Carol White,Chicago,78.93,2025-11-17
+100,Alice Johnson,Houston,759.64,2025-11-24
