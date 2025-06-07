@@ -1,22 +1,33 @@
 import pandas as pd
 import mysql.connector
+import sqlalchemy
+from sqlalchemy import create_engine
+import yaml
+
+# Зчитування конфігурації
+with open("config_load.yaml", "r", encoding="utf-8") as f:
+    config = yaml.safe_load(f)
+
+db = config['mysql']
+csv_path = config['csv_file']
+table_name = config['table']
 
 # Завантаження CSV
-df = pd.read_csv("titanic.csv", encoding="utf-8")
+df = pd.read_csv(csv_path, encoding="utf-8")
 
 # Підключення до MySQL
 conn = mysql.connector.connect(
-    host="localhost",
-    user="root",
-    password="root",
-    database="mydb",
-    port=3306
+    host=db['host'],
+    user=db['user'],
+    password=db['password'],
+    database=db['database'],
+    port=db['port']
 )
 cursor = conn.cursor()
 
-# Створити таблицю
-cursor.execute("""
-CREATE TABLE IF NOT EXISTS titanic (
+# Створення таблиці
+cursor.execute(f"""
+CREATE TABLE IF NOT EXISTS {table_name} (
     PassengerId INT,
     Survived TINYINT,
     Pclass INT,
@@ -32,38 +43,36 @@ CREATE TABLE IF NOT EXISTS titanic (
 )
 """)
 
-# Завантажити дані
+# Завантаження даних у таблицю
 for _, row in df.iterrows():
-   cursor.execute("""
-    INSERT INTO titanic (
-        PassengerId, Survived, Pclass, Name, Sex, Age,
-        SibSp, Parch, Ticket, Fare, Cabin, Embarked
-    ) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
-""", (
-    int(row['PassengerId']),
-    int(row['Survived']),
-    int(row['Pclass']),
-    row['Name'],
-    row['Sex'],
-    float(row['Age']) if pd.notna(row['Age']) else None,
-    int(row['SibSp']),
-    int(row['Parch']),
-    row['Ticket'],
-    float(row['Fare']) if pd.notna(row['Fare']) else None,
-    row['Cabin'] if pd.notna(row['Cabin']) else None,
-    row['Embarked'] if pd.notna(row['Embarked']) else None
-))
+    cursor.execute(f"""
+        INSERT INTO {table_name} (
+            PassengerId, Survived, Pclass, Name, Sex, Age,
+            SibSp, Parch, Ticket, Fare, Cabin, Embarked
+        ) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+    """, (
+        int(row['PassengerId']),
+        int(row['Survived']),
+        int(row['Pclass']),
+        row['Name'],
+        row['Sex'],
+        float(row['Age']) if pd.notna(row['Age']) else None,
+        int(row['SibSp']),
+        int(row['Parch']),
+        row['Ticket'],
+        float(row['Fare']) if pd.notna(row['Fare']) else None,
+        row['Cabin'] if pd.notna(row['Cabin']) else None,
+        row['Embarked'] if pd.notna(row['Embarked']) else None
+    ))
 
 conn.commit()
 
-# Зчитування даних з таблиці
-import sqlalchemy
-engine = sqlalchemy.create_engine("mysql+mysqlconnector://root:root@localhost:3306/mydb")
-df_from_mysql = pd.read_sql("SELECT * FROM titanic", con=engine)
 
-# Закриття курсора і підключення
+
+engine = create_engine(f"mysql+mysqlconnector://{db['user']}:{db['password']}@{db['host']}:{db['port']}/{db['database']}")
+df_from_mysql = pd.read_sql(f"SELECT * FROM {table_name}", con=engine)
 cursor.close()
 conn.close()
 
-# Виведення перших 5 рядків
+# Вивід
 print(df_from_mysql.head())

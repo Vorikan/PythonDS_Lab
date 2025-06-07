@@ -1,0 +1,17 @@
+mysql:
+  host: localhost
+  port: 3306
+  user: root
+  password: root
+  database: mydb
+
+table: titanic
+numeric_columns:
+  - Age
+  - Fare
+  - Pclass
+  - SibSp
+  - Parch
+  - Survived
+
+correlation_method: pearson

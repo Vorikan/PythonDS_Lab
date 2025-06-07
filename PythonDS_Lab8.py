@@ -1,25 +1,31 @@
 import pandas as pd
 from sqlalchemy import create_engine
+import yaml
 
-# Параметри з'єднання
-user = "root"
-password = "root"
-host = "localhost"
-port = "3306"
-database = "mydb"
+# Зчитування конфігурації
+with open("config_analyze.yaml", "r", encoding="utf-8") as f:
+    config = yaml.safe_load(f)
 
-# Створення SQLAlchemy engine
-engine = create_engine(f"mysql+mysqlconnector://{user}:{password}@{host}:{port}/{database}")
+db = config['mysql']
+table_name = config['table']
+numeric_cols = config['numeric_columns']
+correlation_method = config['correlation_method']
 
-# Завантаження даних у DataFrame
-query = "SELECT * FROM titanic"
-df = pd.read_sql(query, con=engine)
+# Підключення до бази
+engine = create_engine(f"mysql+mysqlconnector://{db['user']}:{db['password']}@{db['host']}:{db['port']}/{db['database']}")
 
+# Зчитування таблиці
+df = pd.read_sql(f"SELECT * FROM {table_name}", con=engine)
 
-df_numeric = df[['Age', 'Fare', 'Pclass', 'SibSp', 'Parch', 'Survived']]
+# Вибір числових колонок
+df_numeric = df[numeric_cols]
+
+# Видалення пропущених
 df_clean = df_numeric.dropna()
-correlation = df_clean.corr(method='pearson') 
 
-# Вивід кореляції з 'Survived'
+# Кореляційна матриця
+correlation = df_clean.corr(method=correlation_method)
+
+# Вивід
 print("Кореляція з 'Survived':")
 print(correlation['Survived'].sort_values(ascending=False))
